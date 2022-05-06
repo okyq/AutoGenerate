@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>数据库测试</h1>
+<form th:action="@{/sql}">
+    数据库url：<input type="text" name="sqlUrl">
+    数据库username:<input type="text" name="sqlUsername">
+    数据库Password:<input type="text" name="sqlPassword">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
