@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Lazy
 @Configuration
 public class DruidConfiguration {
+    //先创建bean，放入容器，不配置属性，当接收到前端传来的数据库配置信息的时候再配置属性
     @Bean
     public DruidDataSource SetDruid(){
         return new DruidDataSource();
@@ -23,6 +24,5 @@ public class DruidConfiguration {
     public JdbcTemplate getJdbcTemplate(DruidDataSource dataSource){
         return new JdbcTemplate(dataSource);
     }
-
 
 }

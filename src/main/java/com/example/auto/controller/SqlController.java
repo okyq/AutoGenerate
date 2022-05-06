@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +35,17 @@ public class SqlController {
     @Autowired
     TableName tableName;
 
-    List<String> temp;
+    List<String> temp = new ArrayList<>();
 
+    /**
+     * @Title: testSql
+     * @Param: [sqlEntity]
+     * @Description: 处理前端传来的数据库数据，并设置连接池，把数据库表名放入Bean中
+     * @Author: yuqian
+     * @Date: 2022/5/6
+     * @Return: java.lang.String
+     * @Throws:
+     */
     @RequestMapping("/sql")
     @ResponseBody
     public String testSql(SqlEntity sqlEntity){
@@ -43,11 +53,10 @@ public class SqlController {
         druidDataSource.setUsername(sqlEntity.getSqlUsername());
         druidDataSource.setPassword(sqlEntity.getSqlPassword());
         jdbcTemplate.setDataSource(druidDataSource);
-        List<Map<String, Object>> show_tables = jdbcTemplate.queryForList("show tables");
-        for (Map<String,Object> map : show_tables){
-            map.forEach((k,v)-> temp.add(v.toString()));
-        }
-        System.out.println(temp);
+        List<Map<String, Object>> show_tables = jdbcTemplate.queryForList("select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE=\"BASE TABLE\";\n");
+        show_tables.forEach(t->temp.add((String) t.get("TABLE_NAME")));
+        tableName.setTableName(temp);
+
         return "success";
     }
 
