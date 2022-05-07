@@ -2,6 +2,9 @@ package com.example.auto.entity;
 
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * @ClassName : SqlEntity
  * @Description :
@@ -14,6 +17,66 @@ public class SqlEntity {
     private String sqlUrl;
     private String sqlUsername;
     private String sqlPassword;
+
+
+    private String className;
+    private String author;
+    private String note;
+    private String description;
+    private String packageName;
+
+    public String createClass(){
+        note = "/**\n" +
+                " * @ClassName : "+className+"\n" +
+                " * @Description :"+description+"\n" +
+                " * @Author : "+author+"\n" +
+                " * @Date : "+ LocalDateTime.now().toString().replace("T"," ")+"\n" +
+                " */";
+        return "package "+packageName+"\n"+
+                note+"\n"+
+                "public class "+className+" {"+"\n"+
+                "}";
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public String getSqlUrl() {
         return sqlUrl;
@@ -39,12 +102,4 @@ public class SqlEntity {
         this.sqlPassword = sqlPassword;
     }
 
-    @Override
-    public String toString() {
-        return "SqlEntity{" +
-                "sqlUrl='" + sqlUrl + '\'' +
-                ", sqlUsername='" + sqlUsername + '\'' +
-                ", sqlPassword='" + sqlPassword + '\'' +
-                '}';
-    }
 }

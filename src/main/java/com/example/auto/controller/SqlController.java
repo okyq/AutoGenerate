@@ -40,7 +40,7 @@ public class SqlController {
     /**
      * @Title: testSql
      * @Param: [sqlEntity]
-     * @Description: 处理前端传来的数据库数据，并设置连接池，把数据库表名放入Bean中
+     * @Description: 处理前端传来的数据库数据，并设置连接池，把数据库表名放入Bean中，方便后续操作
      * @Author: yuqian
      * @Date: 2022/5/6
      * @Return: java.lang.String
@@ -56,6 +56,7 @@ public class SqlController {
         List<Map<String, Object>> show_tables = jdbcTemplate.queryForList("select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE=\"BASE TABLE\";\n");
         show_tables.forEach(t->temp.add((String) t.get("TABLE_NAME")));
         tableName.setTableName(temp);
+        System.out.println(sqlEntity.createClass());
 
         return "success";
     }
