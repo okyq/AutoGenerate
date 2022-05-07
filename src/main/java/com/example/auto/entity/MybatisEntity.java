@@ -1,5 +1,6 @@
 package com.example.auto.entity;
 
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  * @Date : 2022/5/7
  */
 
+@Data
 @Component
 public class MybatisEntity {
 
@@ -16,39 +18,5 @@ public class MybatisEntity {
     private String tableId;
     private String tableColumn;
 
-    public String createTableName(String tableName){
-        return "@TableName(\""+tableName+"\")";
-    }
 
-    public String createTableId(String tableId){
-        return "@TableId(\""+tableId+"\")";
-    }
-
-    public String createTableField(String tableColumn){
-        return "@TableField(\""+tableColumn+"\")";
-    }
-
-    public String getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public String getTableId() {
-        return tableId;
-    }
-
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
-
-    public String getTableColumn() {
-        return tableColumn;
-    }
-
-    public void setTableColumn(String tableColumn) {
-        this.tableColumn = tableColumn;
-    }
 }

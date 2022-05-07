@@ -1,5 +1,6 @@
 package com.example.auto.entity;
 
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@Data
 public class SwaggerEntity {
 
     private String entityValue;
@@ -25,27 +27,5 @@ public class SwaggerEntity {
         return "@ApiModelProperty(value = \""+propertyValue+"\")";
     }
 
-    public String getEntityValue() {
-        return entityValue;
-    }
 
-    public void setEntityValue(String entityValue) {
-        this.entityValue = entityValue;
-    }
-
-    public String getEntityDescription() {
-        return entityDescription;
-    }
-
-    public void setEntityDescription(String entityDescription) {
-        this.entityDescription = entityDescription;
-    }
-
-    public String getPropertyValue() {
-        return propertyValue;
-    }
-
-    public void setPropertyValue(String propertyValue) {
-        this.propertyValue = propertyValue;
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.auto.entity;
 
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,15 +12,8 @@ import java.util.List;
  * @Date : 2022/5/6
  */
 @Component
+@Data
 public class TableName {
-
     private List<String> tableName;
 
-    public List<String> getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(List<String> tableName) {
-        this.tableName = tableName;
-    }
 }
