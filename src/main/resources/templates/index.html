@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"/>
 <body>
 <h1>数据库测试</h1>
 <form th:action="@{/sql}">
-    数据库url：<input type="text" name="sqlUrl"><br>
+    数据库IP：<input id="sqlIp" type="text" name="sqlIp"><br>
+    数据库端口号(本地用localhost)：<input id="sqlPort" type="text" name="sqlPort"><br>
+    自定义数据库URL:<input id="sqlUrl" type="text" name="sqlUrl"><br>
     数据库username:<input type="text" name="sqlUsername"><br>
     数据库Password:<input type="text" name="sqlPassword"><br>
 
@@ -15,7 +18,15 @@
     类名：<input type="text" name="className"><br>
     作者：<input type="text" name="author"><br>
 
-    <input type="submit" value="提交">
+    <input onclick="checkUrl" type="submit" value="提交">
 </form>
 </body>
+
+<script>
+function checkUrl(){
+    var sqlIp = $("#sqlIp").val();
+    var sqlPort = $("#sqlPort").val();
+    var sqlUrl =  $("#sqlUrl").val();
+}
+</script>
 </html>
