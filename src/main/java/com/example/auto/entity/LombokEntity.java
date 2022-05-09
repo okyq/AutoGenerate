@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 public class LombokEntity {
 
     public String createData(){
-        return "@Data";
+        return "@Data"+"\n";
     }
     public String createEqualsAndHashCode(){
-        return "@EqualsAndHashCode(callSuper = false)";
+        return "@EqualsAndHashCode(callSuper = false)"+"\n";
     }
 }

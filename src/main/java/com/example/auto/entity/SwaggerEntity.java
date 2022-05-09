@@ -20,11 +20,11 @@ public class SwaggerEntity {
 
 
     public String createApiModel(String entityValue,String entityDescription){
-            return "@ApiModel(value=\""+entityValue+"\", description=\""+entityDescription+"\")";
+            return "@ApiModel(value=\""+entityValue+"\", description=\""+entityDescription+"\")"+"\n";
     }
 
     public String createApiModelProperty(String propertyValue){
-        return "@ApiModelProperty(value = \""+propertyValue+"\")";
+        return "@ApiModelProperty(value = \""+propertyValue+"\")"+"\n";
     }
 
 

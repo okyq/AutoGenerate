@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @ClassName : TableName
- * @Description :
+ * @Description : 用来存储从数据库查询出来的所有表名
  * @Author : yuqian
  * @Date : 2022/5/6
  */

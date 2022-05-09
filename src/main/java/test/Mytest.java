@@ -1,8 +1,7 @@
 package test;
 
-import com.example.auto.entity.ClassTemplate;
+import com.example.auto.entity.ClassEntity;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @ClassName : Mytest
@@ -14,14 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Mytest {
 
 
-    ClassTemplate classTemplate = new ClassTemplate();
 
-    @Test
-    public void testTemplate(){
-        classTemplate.setClassName("Classtest");
-        classTemplate.setAuthor("yuqian");
-        classTemplate.setDescription("This is  a test");
-        classTemplate.setPackageName("com.yq");
-        System.out.println(classTemplate.toString());
-    }
+
 }
