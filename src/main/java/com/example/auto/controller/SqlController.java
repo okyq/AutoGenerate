@@ -4,9 +4,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.example.auto.entity.ClassEntity;
 import com.example.auto.entity.NoteEntity;
 
-import com.example.auto.entity.TableName;
+import com.example.auto.entity.TableInfos;
 import com.example.auto.util.CreateClass;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -35,7 +34,7 @@ public class SqlController {
     JdbcTemplate jdbcTemplate;
 
     @Autowired
-    TableName tableName;
+    TableInfos tableInfos;
 
     @Autowired
     NoteEntity note;
@@ -75,7 +74,7 @@ public class SqlController {
         jdbcTemplate.setDataSource(druidDataSource);
         List<Map<String, Object>> show_tables = jdbcTemplate.queryForList("select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE=\"BASE TABLE\";\n");
         show_tables.forEach(t->temp.add((String) t.get("TABLE_NAME")));
-        tableName.setTableName(temp);
+
         note.setAuthor(author);
         note.setClassName(className);
         classEntity.setPackageName(packageName);
